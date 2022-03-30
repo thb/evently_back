@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  place: one
+  category: one
+  occurs_at: 2022-03-28 15:28:35
+
+two:
+  name: MyString
+  description: MyText
+  place: two
+  category: two
+  occurs_at: 2022-03-28 15:28:35

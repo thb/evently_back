@@ -1,0 +1,47 @@
+<div id="<%= dom_id place %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= place.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Address:</strong>
+    <%= place.address %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Lat:</strong>
+    <%= place.lat %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Lng:</strong>
+    <%= place.lng %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Street number:</strong>
+    <%= place.street_number %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Street:</strong>
+    <%= place.street %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">City:</strong>
+    <%= place.city %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Country:</strong>
+    <%= place.country %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this place", place, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this place', edit_place_path(place), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
