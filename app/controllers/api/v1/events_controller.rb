@@ -23,6 +23,38 @@ module Api
         )
       end
 
+      def create
+        event = Event.new(event_params)
+        if event.save
+          render_json(
+            serializer,
+            event,
+            include: detail_includes,
+            params: { detail: true }
+          )
+        else
+          errors_json(event.errors.full_messages, 422)
+        end
+      end
+
+      def update
+        if @event.update(event_params)
+          render_json(
+            serializer,
+            @event,
+            include: detail_includes,
+            params: { detail: true }
+          )
+        else
+          errors_json(@event.errors.full_messages, 422)
+        end
+      end
+
+      def destroy
+        @event.destroy
+        head 204
+      end
+
       private
       
       def serializer
@@ -35,6 +67,12 @@ module Api
 
       def set_event
         @event = Event.find(params[:id])
+      end
+
+      def event_params
+        params
+          .require(:event)
+          .permit(:name, :description, :starts_at, :category_id, :place_id)
       end
 
     end
