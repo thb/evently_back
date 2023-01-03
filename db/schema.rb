@@ -25,7 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_28_132835) do
     t.text "description"
     t.bigint "place_id", null: false
     t.bigint "category_id", null: false
-    t.datetime "occurs_at"
+    t.datetime "starts_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_events_on_category_id"
