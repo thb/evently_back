@@ -1,5 +1,8 @@
 module Api
   class ApiController < ActionController::API
+
+    rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+
     def render_json(serializer, obj, options={})
       if obj.class.name == 'ActiveRecord::Relation'
         return render_collection(serializer, obj, options)
@@ -25,6 +28,15 @@ module Api
           status: Rack::Utils::HTTP_STATUS_CODES[code].upcase
         }
       }, status: code
+    end
+
+    def record_not_found(error)
+      desc = Rails.env.production? ? 'Record not found.' : error.message
+      errors_json(desc, 404)
+    end
+
+    def user_not_authorized
+      errors_json('You are not authorized to perform this action.', 403)
     end
   end
 end
