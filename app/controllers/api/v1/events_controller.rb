@@ -19,7 +19,7 @@ module Api
           serializer,
           @event,
           include: detail_includes,
-          params: { detail: true }
+          params: { event_detail: true }
         )
       end
 
@@ -30,7 +30,7 @@ module Api
             serializer,
             event,
             include: detail_includes,
-            params: { detail: true }
+            params: { event_detail: true }
           )
         else
           errors_json(event.errors.full_messages, 422)
@@ -43,7 +43,7 @@ module Api
             serializer,
             @event,
             include: detail_includes,
-            params: { detail: true }
+            params: { event_detail: true }
           )
         else
           errors_json(@event.errors.full_messages, 422)
@@ -62,7 +62,7 @@ module Api
       end
 
       def detail_includes
-        []
+        %w[category place]
       end
 
       def set_event
@@ -72,7 +72,7 @@ module Api
       def event_params
         params
           .require(:event)
-          .permit(:name, :description, :starts_at, :category_id, :place_id)
+          .permit(:name, :description, :starts_at, :ends_at, :category_id, :place_id)
       end
 
     end

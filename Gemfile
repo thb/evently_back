@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.1.1"
+ruby "3.2.0"
 
 # Base
 gem "rails", "~> 7.0.2", ">= 7.0.2.3"
@@ -17,6 +17,7 @@ gem "tailwindcss-rails"
 # gem "sassc-rails"
 
 gem 'jsonapi-serializer'
+gem 'rack-cors'
 
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
