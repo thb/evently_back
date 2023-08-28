@@ -6,7 +6,8 @@ module Api
       attributes :id,
                  :name,
                  :description,
-                 :starts_at
+                 :starts_at,
+                 :ends_at
 
       belongs_to :category
       belongs_to :place

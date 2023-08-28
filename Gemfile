@@ -18,6 +18,8 @@ gem "tailwindcss-rails"
 
 gem 'jsonapi-serializer'
 gem 'rack-cors'
+gem 'devise'
+gem 'doorkeeper'
 
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"

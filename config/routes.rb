@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  use_doorkeeper
   resources :events
   resources :places
   resources :categories
@@ -11,5 +12,11 @@ Rails.application.routes.draw do
     end
   end
   
+  use_doorkeeper do
+    controllers tokens: :access_token
+  end
+  
+  devise_for :users
+
   root "events#index"
 end
